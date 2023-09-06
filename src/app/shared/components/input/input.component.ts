@@ -2,11 +2,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 
 @Component({
-  selector: 'app-input-search',
-  templateUrl: './input-search.component.html',
-  styleUrls: ['./input-search.component.scss']
+  selector: 'app-input',
+  templateUrl: './input.component.html',
+  styleUrls: ['./input.component.scss']
 })
-export class InputSearchComponent implements ControlValueAccessor {
+export class InputComponent implements ControlValueAccessor{
   @Input() type: string = 'text';
 
   @Input() label!: string;
