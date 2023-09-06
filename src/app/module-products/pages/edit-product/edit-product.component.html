@@ -1,1 +1,7 @@
-<p>edit-product works!</p>
+<div class="container">
+  <app-product-form
+    title="Editar Registro"
+    mode="edit"
+    (submitForm)="submitForm($event)"
+    [product]="product"></app-product-form>
+</div>

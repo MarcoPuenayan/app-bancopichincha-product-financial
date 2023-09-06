@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import { DropdownMenuComponent } from './components/dropdown-menu/dropdown-menu.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ProductListComponent } from './pages/product-list/product-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewProductComponent } from './pages/new-product/new-product.component';
 import { EditProductComponent } from './pages/edit-product/edit-product.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
@@ -21,17 +21,19 @@ import { ProductFormComponent } from './components/product-form/product-form.com
     ProductsImageComponent,
     SearchProductsPipe,
     DropdownMenuComponent,
-    ProductListComponent,
     NewProductComponent,
     EditProductComponent,
     ProductFormComponent
+
   ],
   imports: [
     CommonModule,
     ModuleProductsRoutingModule,
     HttpClientModule,
     SharedModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ModuleProductsModule { }

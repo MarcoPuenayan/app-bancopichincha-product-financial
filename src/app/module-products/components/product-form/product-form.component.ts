@@ -7,7 +7,7 @@ import { Product } from '../../models/product.model';
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.scss']
 })
-export class ProductFormComponentimplements implements OnInit {
+export class ProductFormComponent implements OnInit {
   @Input() title: string = 'Titulo del formulario';
 
   @Input() mode: string = 'new'; // or edit;
