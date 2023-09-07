@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import {CoreModule} from './core/core.module'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SharedModule } from './shared/shared.module';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptorService } from './shared/interceptor/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -17,9 +19,11 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     CoreModule,
     FontAwesomeModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

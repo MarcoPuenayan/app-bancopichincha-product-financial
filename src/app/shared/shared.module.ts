@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { InputSearchComponent } from './components/input-search/input-search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputComponent } from './components/input/input.component';
+import { ButtonGenericComponent } from './components/button-generic/button-generic.component';
 
 
 
 @NgModule({
   declarations: [
     InputSearchComponent,
-    InputComponent
+    InputComponent,
+    ButtonGenericComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { InputComponent } from './components/input/input.component';
   ],
   exports: [
     InputSearchComponent,
-    InputComponent
+    InputComponent,
+    ButtonGenericComponent
   ]
 })
 export class SharedModule { }

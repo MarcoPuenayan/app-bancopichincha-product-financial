@@ -60,7 +60,7 @@ export class ProductFormComponent implements OnInit {
       date_release: new FormControl({ value: this.isModeEdit ? this.product.date_release : '', disabled: false }, [
         Validators.required,
       ]),
-      date_revision: new FormControl({ value: this.isModeEdit ? this.product.date_revision : '', disabled: true }),
+      date_revision: new FormControl({ value: this.isModeEdit ? this.product.date_revision : '', disabled: false }),
     });
 
     return newForm;
@@ -98,4 +98,3 @@ export class ProductFormComponent implements OnInit {
     return this.mode === 'edit'
   }
 }
-

@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewProductComponent } from './pages/new-product/new-product.component';
 import { EditProductComponent } from './pages/edit-product/edit-product.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
+import { ProductListComponent } from './pages/product-list/product-list.component';
+import { InputErrorComponent } from './components/input-error/input-error.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { ProductFormComponent } from './components/product-form/product-form.com
     DropdownMenuComponent,
     NewProductComponent,
     EditProductComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductListComponent,
+    InputErrorComponent
 
   ],
   imports: [
@@ -33,7 +37,8 @@ import { ProductFormComponent } from './components/product-form/product-form.com
     SharedModule,
     FontAwesomeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+   
   ]
 })
 export class ModuleProductsModule { }

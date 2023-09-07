@@ -12,17 +12,28 @@
   -webkit-box-shadow: #717173;
   background: rgb(97, 97, 97);
   border-radius: 10px;
+
 }
 
 .table-list-products {
   background-color: white;
   padding: 25px;
-  padding-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+
 }
 .table-wrapper {
-  overflow: hidden;
-  overflow-x: scroll;
+   overflow: hidden;
+   overflow-x: scroll;
+
 }
+.container-child{
+  align-self: center;
+}
+
 
 table {
   border-spacing: 0px;
@@ -31,6 +42,9 @@ table {
   tbody {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    z-index: 999;
+
   }
 }
 
@@ -81,4 +95,44 @@ span .v-dots {
   &:hover {
     cursor: pointer;
   }
+}
+
+
+
+.options {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+
+.empty-data{
+  text-align: center;
+  margin: 15px;
+}
+
+.product-logo {
+  height: 60px;
+}
+
+.paginator {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.pageSize {
+  height: 30px;
+  width: 60px;
+
+}
+.navigator {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
 }

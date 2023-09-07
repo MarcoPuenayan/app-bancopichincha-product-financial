@@ -1,68 +1,89 @@
-<div class="options">
-  <app-input-search
-    placeholder="Search"
-    (keyUp)="search($event)"></app-input-search>
+<div class="container-child">
+  <div class="options">
+    <app-input-search
+      placeholder="Search"
+      (keyUp)="search($event)"></app-input-search>
 
-  <button
-    class="btn-primary"
-    (click)="addNewProduct()">
-    Agregar
-  </button>
-</div>
-
-<div class="list-container">
-  <div class="datatable-container">
-    <table>
-      <tr>
-        <th *ngFor="let column of columns">
-          {{column.name}}
-        </th>
-      </tr>
-      <tr *ngFor="let item of datasource">
-        <td>
-          <img class="product-logo" [src]="item.logo" alt srcset>
-        </td>
-        <td>
-          {{item.name}}
-        </td>
-        <td>
-          {{item.description}}
-        </td>
-        <td>
-          {{item.date_release | date: 'dd/MM/yyyy'}}
-        </td>
-        <td>
-          {{item.date_revision | date: 'dd/MM/yyyy'}}
-        </td>
-        <td>
-          <app-dropdown-menu
-            [product]="item"
-            (editProduct)="editProduct($event)"
-            (deleteProduct)="onDeleteProduct($event)">
-          </app-dropdown-menu>
-        </td>
-      </tr>
-    </table>
-    <div *ngIf="datasource.length === 0" class="empty-data">
-      No data
-    </div>
-
-    <div class="paginator">
-      <div>
-        {{data.length}} Resultados
-      </div>
-      <div class="navigator">
-        <button (click)="prevPage()">Anterior</button>
-        Pagina {{currentPage}} de {{numPages}}
-        <button (click)="nextPage()">Siguiente</button>
-      </div>
-      <select name="pageSize" id="pageSize" [(ngModel)]="pageSize"
-        (change)="changePageSize()">
-        <option *ngFor="let pageSize of pageSizeOptions" [value]="pageSize">{{pageSize}}</option>
-      </select>
-    </div>
+    <app-button-generic
+      role="navigation"
+      [routerLink]="['/products','new']"
+      buttonText="Agregar">
+    </app-button-generic>
   </div>
-  <div>
 
+  <div class="table-list-products">
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <p>Logo</p>
+          </th>
+          <th>
+            <p>Nombre del producto<span
+                class="material-symbols-outlined inline-icon">info</span></p>
+          </th>
+          <th>
+            <p>Descripción<span class="material-symbols-outlined inline-icon">info</span></p>
+          </th>
+          <th>
+            <p>Fecha de liberación<span
+                class="material-symbols-outlined inline-icon">info</span></p>
+          </th>
+          <th>
+            <p>Fecha de reestructuración<span
+                class="material-symbols-outlined inline-icon">info</span></p>
+          </th>
+          <th>
+            <p>Acciones</p>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of datasource">
+          <td>
+
+            <app-products-image [imagenSrc]="item.logo" />
+
+          </td>
+          <td>
+            {{item.name}}
+          </td>
+          <td>
+            {{item.description}}
+          </td>
+          <td>
+            {{item.date_release | date: 'dd/MM/yyyy'}}
+          </td>
+          <td>
+            {{item.date_revision | date: 'dd/MM/yyyy'}}
+          </td>
+          <td>
+            <app-dropdown-menu
+              [product]="item"
+              (editProduct)="editProduct($event)"
+              (deleteProduct)="onDeleteProduct($event)">
+            </app-dropdown-menu>
+          </td>
+        </tr>
+        <div *ngIf="datasource.length === 0" class="empty-data">
+          Loading.....
+        </div>
+      </tbody>
+      <tfoot class="table-wrapper">
+        <div class="paginator">
+          <div>
+            {{datasource.length}} Resultados
+          </div>
+
+          <select name="pageSize" id="pageSize" [(ngModel)]="pageSize"
+            class="pageSize"
+            (change)="changePageSize()">
+            <option *ngFor="let pageSize of pageSizeOptions" [value]="pageSize">{{pageSize}}</option>
+          </select>
+        </div>
+      </tfoot>
+    </table>
+    <div>
+    </div>
   </div>
 </div>

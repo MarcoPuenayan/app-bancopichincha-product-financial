@@ -26,33 +26,7 @@ export class TableListProductsComponent implements OnChanges {
   numPages = 1;
 
 
-  columns: DataTableColumn[] = [
-    {
-      field: 'logo',
-      name: 'Logo'
-    },
-    {
-      field: 'name',
-      name: 'Nombre del Producto'
-    },
-    {
-      field: 'description',
-      name: 'Descripcion'
-    },
-    {
-      field: 'date_release',
-      name: 'Fecha de Liberacion'
-    },
-    {
-      field: 'date_revision',
-      name: 'Fecha de Reestructuracion'
-    },
-    {
-      field: '',
-      name: ''
-    }
 
-  ];
 
   constructor(
     private router: Router,
@@ -78,15 +52,15 @@ export class TableListProductsComponent implements OnChanges {
 
     this.datasource = this.datasource.slice(fromIndex, toIndex);
     this.numPages = this.calculateNumPages();
+
+
   }
 
   calculateNumPages() {
     return Math.floor(this.datasource.length / this.pageSize) + ((this.datasource.length % this.pageSize)  === 0 ? 0 : 1);
   }
 
-  addNewProduct() {
-    this.router.navigate(['products', 'new'])
-  }
+
 
   editProduct(product: Product) {
     this.router.navigate(['products', 'edit', `${product.id}`], {state: {product}})
@@ -101,18 +75,7 @@ export class TableListProductsComponent implements OnChanges {
     this.search(this.searchFilter);
   }
 
-  nextPage() {
-    if (this.currentPage < this.numPages) {
-      this.currentPage++;
-    }
-    console.log(this.currentPage);
-  }
 
-  prevPage() {
-    if (this.currentPage > 1) {
-      this.currentPage--;
-    }
-  }
 
 }
 
