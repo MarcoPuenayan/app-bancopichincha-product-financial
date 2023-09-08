@@ -30,14 +30,12 @@
    overflow-x: scroll;
 
 }
-.container-child{
-  align-self: center;
-}
+
 
 
 table {
-  border-spacing: 0px;
-  min-width: 1196px;
+  border-spacing: 5px;
+  min-width: 1200px;
   thead,
   tbody {
     display: flex;
@@ -58,15 +56,20 @@ tr {
   }
   th {
     background: #f9fafc;
+padding: 0;
     &:not(:last-child) {
       border-bottom: 2px #bfc1c5 solid;
+
+    }
+    &:is(:first-child) {
+      padding-left:15px ;
+
     }
   }
   td {
     border-bottom: 2px #f8f8f8 solid;
   }
-  th,
-  td {
+  th{
     align-items: center;
     display: flex;
     flex-basis: 22.5%;
@@ -79,6 +82,19 @@ tr {
       flex-basis: 4.5%;
     }
   }
+  td {
+    align-items: center;
+    display: flex;
+    flex-basis: 22.5%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 60px;
+    justify-content: flex-start;
+    &:first-child,
+    &:last-child {
+      flex-basis: 5.7%;
+    }
+  }
 }
 
 .inline-icon {
@@ -86,16 +102,7 @@ tr {
   margin-left: 5px;
   vertical-align: bottom;
 }
-span .v-dots {
-  position: relative;
-}
-.v-dots {
-  color: #bfc1c5;
-  font-variation-settings: 'wght' 700;
-  &:hover {
-    cursor: pointer;
-  }
-}
+
 
 
 
@@ -112,9 +119,7 @@ span .v-dots {
   margin: 15px;
 }
 
-.product-logo {
-  height: 60px;
-}
+
 
 .paginator {
   display: flex;
@@ -128,11 +133,4 @@ span .v-dots {
   height: 30px;
   width: 60px;
 
-}
-.navigator {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
 }

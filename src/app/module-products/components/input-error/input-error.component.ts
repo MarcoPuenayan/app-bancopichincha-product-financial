@@ -10,11 +10,13 @@ import { Errors, formErrors } from './Erros';
 export class InputErrorComponent {
   errorMessage = '';
   @Input() set error(error: ValidationErrors | null | undefined) {
+    console.log(error);
     if (error) {
       const errorString = <keyof Errors>(
         (<string>Object.keys(error as Object)[0])
       );
       this.errorMessage = formErrors[errorString];
+
     } else {
       this.errorMessage = '';
     }

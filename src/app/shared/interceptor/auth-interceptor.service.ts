@@ -12,7 +12,7 @@ export class AuthInterceptorService  implements HttpInterceptor{
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     request = request.clone({
       setHeaders: {
-        'authorId': `0000`,
+        'authorId': `120490`,
       }
     });
     return next.handle(request);

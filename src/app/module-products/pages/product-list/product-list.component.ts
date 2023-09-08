@@ -29,8 +29,15 @@ export class ProductListComponent {
   deleteProduct(product: Product) {
     this.productService.deleteProduct(product).subscribe({
       next: (response) => {
+
+      },
+      complete:()=>{
+        this.getAllProducts();
+      },
+      error:()=>{
         this.getAllProducts();
       }
+
     });
   }
 

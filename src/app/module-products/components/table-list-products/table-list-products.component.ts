@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, OnChanges, Output, Renderer2 } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { DataTableColumn, Product } from '../../models/product.model';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+
+import {  Product } from '../../models/product.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -23,17 +23,9 @@ export class TableListProductsComponent implements OnChanges {
 
   searchFilter = '';
 
-  numPages = 1;
-
-
-
-
   constructor(
     private router: Router,
-    private renderer: Renderer2
-  ) {
-
-  }
+  ) {}
 
   ngOnChanges(changes: any): void {
     this.search('');
@@ -51,15 +43,10 @@ export class TableListProductsComponent implements OnChanges {
     const toIndex = fromIndex + this.pageSize;
 
     this.datasource = this.datasource.slice(fromIndex, toIndex);
-    this.numPages = this.calculateNumPages();
+
 
 
   }
-
-  calculateNumPages() {
-    return Math.floor(this.datasource.length / this.pageSize) + ((this.datasource.length % this.pageSize)  === 0 ? 0 : 1);
-  }
-
 
 
   editProduct(product: Product) {
@@ -68,10 +55,11 @@ export class TableListProductsComponent implements OnChanges {
 
   onDeleteProduct(product: Product) {
     this.deleteProduct.emit(product);
+
   }
 
   changePageSize() {
-    console.log('CANGE PAGE SZE');
+
     this.search(this.searchFilter);
   }
 

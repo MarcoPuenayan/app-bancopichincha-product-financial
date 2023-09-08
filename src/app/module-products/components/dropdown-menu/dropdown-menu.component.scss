@@ -1,6 +1,7 @@
 .dropdown {
     position: relative;
     display: flex;
+
   }
 
   .dropdown-content {
@@ -16,6 +17,9 @@
   .show {
     display: flex;
     flex-direction: column;
+    top: 5px;
+    right: 35px;
+    border-radius: 5px;
   }
 
   .dropdown-content a {

@@ -1,7 +1,7 @@
 <div class="container-child">
   <div class="options">
     <app-input-search
-      placeholder="Search"
+      placeholder="Search..."
       (keyUp)="search($event)"></app-input-search>
 
     <app-button-generic
@@ -34,11 +34,11 @@
                 class="material-symbols-outlined inline-icon">info</span></p>
           </th>
           <th>
-            <p>Acciones</p>
+
           </th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="table-wrapper">
         <tr *ngFor="let item of datasource">
           <td>
 
@@ -69,7 +69,7 @@
           Loading.....
         </div>
       </tbody>
-      <tfoot class="table-wrapper">
+      <tfoot>
         <div class="paginator">
           <div>
             {{datasource.length}} Resultados
